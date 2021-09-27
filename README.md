@@ -16,10 +16,14 @@ dotnet watch run
 
 <br>
 
-SPA application statically hosted on Amazon AWS S3: 
+SPA application statically hosted on Vercel: 
 
-<http://vitor-blazor-app.s3-website.us-east-2.amazonaws.com/>
+<https://vitor-blazor.vercel.app>
 
+
+Using Vercel CLI:
+
+<https://vercel.com/docs/cli>
 
 <br>
 <br>
@@ -27,4 +31,9 @@ SPA application statically hosted on Amazon AWS S3:
 
 Learn more about ASP.NET CoreBlazor:
 
-https://docs.microsoft.com/pt-br/aspnet/core/blazor/?view=aspnetcore-5.0
+<https://docs.microsoft.com/pt-br/aspnet/core/blazor/?view=aspnetcore-5.0>
+
+
+Learn more about Vercel Hosting:
+
+<https://vercel.com/>
