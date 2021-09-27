@@ -1,0 +1,49 @@
+﻿@page "/todo/add"
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Models
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+
+<div class="uk-container">
+    <EditForm Model="@todoItem" OnValidSubmit="@HandleSubmit">
+
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="uk-margin">
+            <InputText @bind-Value="todoItem.Title" class="uk-input uk-form-width-large uk-form-large"
+                placeholder="Description" />
+        </div>
+
+        <button class="uk-button uk-button-primary uk-button-large" type="submit">
+            Confirm
+        </button>
+
+        <a href="/todo" class="uk-button uk-button-default uk-button-large uk-margin-left">
+            Return
+        </a>
+    </EditForm>
+</div>
+
+
+@code {
+    private TodoItem todoItem = new();
+
+    private async void HandleSubmit()
+    {
+        try
+        {
+            var response = await Http.PostAsJsonAsync("todos", todoItem);
+
+            NavigationManager.NavigateTo($"/todo", false);
+        }
+        catch (System.Exception ex)
+        {
+            await JS.InvokeAsync<string>("alert", "Não estamos conseguindo comunicar com a API: " + ex.Message);
+        }
+    }
+
+}

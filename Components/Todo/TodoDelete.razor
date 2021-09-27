@@ -1,0 +1,58 @@
+﻿@page "/todo/delete/{Id:int}"
+@using Models
+@using System.Net.Http
+@using System.Net.Http.Json
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<div>
+    <div class="uk-margin">
+        <input class="uk-input uk-form-width-large uk-form-large" type="text" disabled value="@todo.Title" />
+    </div>
+
+    <div>
+        <button class="uk-button uk-button-danger uk-button-large" @onclick="() => HandleDelete()">
+            Delete Confirm
+        </button>
+
+        <a href="/todo" class="uk-button uk-button-default uk-button-large uk-margin-left">
+            Return
+        </a>
+    </div>
+</div>
+
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private TodoItem todo = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        try
+        {
+            todo = await Http.GetFromJsonAsync<TodoItem>($"/todos/{Id}");
+        }
+        catch (System.Exception ex)
+        {
+            await JS.InvokeAsync<string>("alert", "Não estamos conseguindo comunicar com a API: " + ex.Message);
+        }
+    }
+
+    private async void HandleDelete()
+    {
+        try
+        {
+            await Http.DeleteAsync($"todos/{todo.Id}");
+
+            NavigationManager.NavigateTo($"/todo", false);
+        }
+        catch (System.Exception ex)
+        {
+            await JS.InvokeAsync<string>("alert", "Não estamos conseguindo comunicar com a API: " + ex.Message);
+        }
+    }
+}

@@ -1,0 +1,54 @@
+﻿@using Models
+@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Threading.Tasks
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<table class="uk-table uk-text-large uk-text-light">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tasks</th>
+            <th>
+                <a href="todo/add">
+                    <span uk-icon="icon: plus; ratio: 1.5"></span>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in todos)
+        {
+            <tr class="uk-animation-slide-bottom-medium">
+                <td class="uk-width-auto">
+                    <input class="uk-checkbox" type="checkbox" />
+                </td>
+                <td class="uk-width-expand">
+                    @todo.Title
+                </td>
+                <td class="uk-width-auto uk-flex">
+                    <a href="/todo/edit/@todo.Id" class="uk-icon-button uk-button-primary uk-margin-right" uk-icon="pencil"></a>
+                    <a href="/todo/delete/@todo.Id" class="uk-icon-button uk-button-danger" uk-icon="trash"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+    private List<TodoItem> todos = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        try
+        {
+            todos = await Http.GetFromJsonAsync<List<TodoItem>>("/todos");
+        }
+        catch (System.Exception ex)
+        {
+            await JS.InvokeAsync<string>("alert", "Não estamos conseguindo comunicar com a API: " + ex.Message);
+        }
+    }    
+}
