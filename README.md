@@ -25,6 +25,14 @@ Using Vercel CLI:
 
 <https://vercel.com/docs/cli>
 
+
+<br>
+
+tutorial to publish blazor app on Amazon AWS S3 - static site: 
+
+<https://www.youtube.com/watch?v=8tR6W-lZVGw>
+
+
 <br>
 <br>
 
