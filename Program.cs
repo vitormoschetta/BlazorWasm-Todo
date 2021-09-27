@@ -13,7 +13,9 @@ namespace BlazorTodo
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(@"http://localhost:2001") });
+            // dependency injection 
+            // builder.Services.AddSingleton<IMyDependency, MyDependency>();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(@"http://localhost:2001") });            
 
             await builder.Build().RunAsync();
         }
