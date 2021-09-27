@@ -39,7 +39,7 @@
     {
         try
         {
-            todoItem = await Http.GetFromJsonAsync<TodoItem>($"/todos/{Id}");
+            todoItem = await Http.GetFromJsonAsync<TodoItem>($"/todo/{Id}");
 
         }
         catch (System.Exception ex)
@@ -52,7 +52,7 @@
     {
         try
         {
-            var response = await Http.PutAsJsonAsync($"todos/{Id}", todoItem);
+            var response = await Http.PutAsJsonAsync($"todo/{Id}", todoItem);
 
             NavigationManager.NavigateTo($"/todo", false);
         }

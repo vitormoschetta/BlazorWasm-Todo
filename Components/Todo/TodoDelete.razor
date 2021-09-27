@@ -34,7 +34,7 @@
     {
         try
         {
-            todo = await Http.GetFromJsonAsync<TodoItem>($"/todos/{Id}");
+            todo = await Http.GetFromJsonAsync<TodoItem>($"/todo/{Id}");
         }
         catch (System.Exception ex)
         {
@@ -46,7 +46,7 @@
     {
         try
         {
-            await Http.DeleteAsync($"todos/{todo.Id}");
+            await Http.DeleteAsync($"todo/{todo.Id}");
 
             NavigationManager.NavigateTo($"/todo", false);
         }

@@ -44,7 +44,7 @@
     {
         try
         {
-            todos = await Http.GetFromJsonAsync<List<TodoItem>>("/todos");
+            todos = await Http.GetFromJsonAsync<List<TodoItem>>("/todo");
         }
         catch (System.Exception ex)
         {

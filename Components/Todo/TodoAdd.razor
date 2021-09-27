@@ -36,7 +36,7 @@
     {
         try
         {
-            var response = await Http.PostAsJsonAsync("todos", todoItem);
+            var response = await Http.PostAsJsonAsync("/todo", todoItem);
 
             NavigationManager.NavigateTo($"/todo", false);
         }
