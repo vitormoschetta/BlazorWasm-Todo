@@ -40,7 +40,6 @@
         try
         {
             todoItem = await Http.GetFromJsonAsync<TodoItem>($"/todo/{Id}");
-
         }
         catch (System.Exception ex)
         {
