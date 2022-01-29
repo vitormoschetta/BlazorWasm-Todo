@@ -4,12 +4,14 @@
 
 Execute Data Server (JSON Server):
 ```
-cd Data
+cd database
+npm install
 yarn server
 ```
 
 Execute App Blazor:
 ```
+cd src
 dotnet watch run
 ```
 
