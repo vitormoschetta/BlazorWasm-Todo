@@ -1,49 +1,44 @@
 # Blazor Wasm
 
-### Execute in localhost:
+O WebAssembly ou Wasm é um novo formato, portável, leve e com tempo de carregamento eficiente, adequado para compilação na Web. Assim o navegador passa a funcionar como uma máquina virtual rodando o Wasm (código binário).
 
-Execute Data Server (JSON Server):
+O Blazor utiliza essa possibilidade para rodar CSharp no Brownser de forma estática, como se fosse um JavaScript. Agora podemos escrever Single Page Applications (SPA), com todas as vantagens do `two way data binding`, com .NET Blazor Wasm.
+
+<br>
+
+### Para executar este aplicativo:
+
+Inicializar a base de dados:
 ```
 cd database
 npm install
 yarn server
 ```
 
-Execute App Blazor:
+Executar o aplicativo:
 ```
-cd src
+cd BlazorTodo
 dotnet watch run
 ```
 
 
 <br>
 
-SPA application statically hosted on Vercel: 
+Aplicativo SPA hospedado estaticamente no Vercel:
 
 <https://vitor-blazor.vercel.app>
 
 
-Using Vercel CLI:
-
-<https://vercel.com/docs/cli>
-
-
-<br>
-
-tutorial to publish blazor app on Amazon AWS S3 - static site: 
-
-<https://www.youtube.com/watch?v=8tR6W-lZVGw>
-
 
 <br>
 <br>
 
 
-Learn more about ASP.NET CoreBlazor:
+Saiba mais sobre o ASP.NET CoreBlazor:
 
 <https://docs.microsoft.com/pt-br/aspnet/core/blazor/?view=aspnetcore-5.0>
 
 
-Learn more about Vercel Hosting:
+Saiba mais sobre a Hospedagem Vercel:
 
 <https://vercel.com/>
